@@ -9,8 +9,8 @@ let img;//画像データ
 function setup() {
 
     if (!constraints) {
-        //constraints = { video: true, audio: false };
-        constraints = {video: {facingMode: 'environment'}, audio: false }; //'user'          
+        constraints = { video: true, audio: false };
+        //constraints = {video: {facingMode: 'environment'}, audio: false }; //'user'          
     }
     createCanvas(640, 480);
     video = createCapture(VIDEO);
