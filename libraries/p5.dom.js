@@ -1096,7 +1096,7 @@
     p5._validateParameters('createCapture', arguments);
     var useVideo = true;
     var useAudio = true;
-    var constraints;
+    //var constraints;
     var cb;
     for (var i = 0; i < arguments.length; i++) {
       if (arguments[i] === p5.prototype.VIDEO) {
@@ -1112,9 +1112,15 @@
     if (navigator.getUserMedia) {
       var elt = document.createElement('video');
 
-      if (!constraints) {
-        constraints = { video: useVideo, audio: useAudio };
-      }
+      //if (!constraints) {
+      //  constraints = { video: useVideo, audio: useAudio };
+        /*constraints = {
+           video: {
+            // スマホのバックカメラを使用
+            facingMode: 'user'//'environment' //'user'
+          }, audio: useAudio };
+         */
+      //}
 
       navigator.mediaDevices.getUserMedia(constraints).then(
         function(stream) {
