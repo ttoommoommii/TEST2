@@ -3,6 +3,7 @@ let video;
 let label = "";
 
 let constraints=0;    //カメラ変更
+let img;//画像データ
 
 
 function setup() {
@@ -27,6 +28,11 @@ function setup() {
     CamChangeButton2.mousePressed(CamChangeFront);
     CamChangeButton2.size(200,30);
     CamChangeButton2.position(width/2 + 10, height);
+    //img = loadImage('img.jpg'); // Load the image
+    
+}
+function preload() {
+  img = loadImage('img2.png');
 }
 function CamChangeBak(){
     //if (!constraints) {
@@ -59,11 +65,13 @@ function CamChangeFront(){
 function draw() {
     image(video, 0, 0);
     fill(0);
-    textSize(20);
-    strokeWeight(5);
-    stroke(255, 255, 255);
-    text("これは何でしょう？",10,height - 50)
-    text(label, 10, height - 10);
+    textSize(30);
+    strokeWeight(3);
+    stroke(20, 181, 255);
+    text("これは何でしょう？",80,height - 40)
+    textSize(25);
+    text(label, 110, height - 10);
+    image(img, 0, height - 100, 100, 100);
 }
 
 function modelLoaded() {
