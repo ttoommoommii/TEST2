@@ -9,8 +9,8 @@ let img;//画像データ
 function setup() {
 
     if (!constraints) {
-        constraints = { video: true, audio: false };
-        //constraints = {video: {facingMode: 'environment'}, audio: false }; //'user'          
+        //constraints = { video: true, audio: false };
+        constraints = {video: {facingMode: 'environment'}, audio: false }; //'user'          
     }
     createCanvas(640, 480);
     video = createCapture(VIDEO);
@@ -44,11 +44,14 @@ function CamChangeBak(){
         }, audio: false };          
     //}
     //createCanvas(640, 480);
+    
     video = createCapture(VIDEO);
     video.hide();
+
+    classifier = ml5.imageClassifier("MobileNet", video, modelLoaded);
 }
 function CamChangeFront(){
-    //if (!constraints) {
+     //if (!constraints) {
         //constraints = { video: true, audio: true };
         constraints = {
            video: {
@@ -57,8 +60,11 @@ function CamChangeFront(){
         }, audio: false };          
     //}
     //createCanvas(640, 480);
+   
     video = createCapture(VIDEO);
     video.hide();
+
+    classifier = ml5.imageClassifier("MobileNet", video, modelLoaded);
 }
 
 
